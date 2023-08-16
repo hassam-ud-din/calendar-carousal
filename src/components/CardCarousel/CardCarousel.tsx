@@ -2,7 +2,7 @@ import { Carousel, Col, Row, theme } from "antd"
 import { useEffect, useRef } from "react"
 import DateCard from "./DateCard"
 import { Dayjs } from "dayjs"
-import useCardsPerSlide from "../../hooks/useCardsPerSlide"
+import { useCardsPerSlide } from "../../hooks"
 import { CarouselRef } from "antd/es/carousel"
 import { IDate } from "../../shared/types"
 

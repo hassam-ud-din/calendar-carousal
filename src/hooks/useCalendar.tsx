@@ -133,8 +133,6 @@ function CalendarProvider({
   )
 }
 
-export { CalendarContext, CalendarProvider }
-
 export const useCalendar = () => {
   const context = useContext(CalendarContext)
   if (!context) {
@@ -143,4 +141,5 @@ export const useCalendar = () => {
   return context
 }
 
+export { CalendarProvider }
 export default useCalendar

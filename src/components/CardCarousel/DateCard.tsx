@@ -44,7 +44,7 @@ function DateCard(props: DateCardProps) {
         style={{
           fontWeight: "400",
           color: token.colorTextSecondary,
-          marginBottom: token.marginXS,
+          margin: token.marginXS,
           fontSize: token.fontSizeHeading1,
         }}
       >

@@ -1,10 +1,9 @@
 import { Collapse, TimePicker, Typography, ConfigProvider, theme, CollapseProps } from "antd"
 import DurationSetter from "../components/DurationSetter"
-import { useCalendar } from "../hooks/useCalendar"
+import { useCalendar, useCustomStyles } from "../hooks"
 import CardCarousel from "../components/CardCarousel/CardCarousel"
 import { Dayjs } from "dayjs"
 import { useState } from "react"
-import useCustomStyles from "../hooks/useCustomStyles"
 import {
   getDateToken,
   getDurationToken,

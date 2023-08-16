@@ -1,8 +1,9 @@
 {
-  "name": "react-ts",
-  "private": true,
-  "version": "0.0.0",
+  "name": "calendar-carousel",
+  "version": "1.0.0",
+  "author": "Hassam Ud Din <hassamuddin.all@gmail.com>",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
