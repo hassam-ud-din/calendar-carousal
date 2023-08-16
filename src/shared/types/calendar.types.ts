@@ -19,10 +19,10 @@ export type IDate = {
  * @property {number} duration The number representing the duration.
  */
 export type Selected = {
-  /** @default dayjs() */
-  date: Dayjs
-  /** @default dayjs() */
-  time: Dayjs
+  /** @default null */
+  date: Dayjs | null
+  /** @default null */
+  time: Dayjs | null
   /** @default [avg(minDuration, maxDuration).floor()] */
   duration: number
 }
@@ -65,4 +65,15 @@ export type IBreakpoint = {
   xxl: number
 }
 
+/**@description Represents a closed date. Can be a day (string) or a date (Dayjs) */
 export type ClosedDate = string | Dayjs
+
+/**
+ * @description Represents disabled time range in hours
+ * @property {number} start - Start of the range (first disabled hour)
+ * @property {number} end - End of the range (last disabled hour)
+ */
+export type ClosedHoursRange = {
+  start: number
+  end: number
+}

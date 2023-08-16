@@ -12,6 +12,7 @@ import {
   getFormattedTime,
   getFormattedDate,
   getDurationInHours,
+  getDisabledTime,
 } from "../utils"
 import { DownOutlined } from "@ant-design/icons"
 
@@ -19,12 +20,14 @@ const { Text } = Typography
 const { useToken } = theme
 
 export type CalendarProps = {
+  activePanels?: string | Array<string>
   customDateComponent?: React.ReactNode
   customTimeComponent?: React.ReactNode
   customDurationComponent?: React.ReactNode
 }
 
 export default function Calendar({
+  activePanels,
   customDateComponent,
   customTimeComponent,
   customDurationComponent,
@@ -37,13 +40,16 @@ export default function Calendar({
     dates,
     formats,
     durationStep,
+    closedHours,
     setDate,
     setTime,
     increaseDuration,
     decreaseDuration,
   } = useCalendar()
 
-  const [activeKey, setActiveKey] = useState<string | Array<string>>(["1"])
+  const [activeKey, setActiveKey] = useState<string | Array<string>>(
+    activePanels || ["1", "2"]
+  )
 
   const handleDateChange = (date: Dayjs) => {
     setDate(date)
@@ -95,6 +101,9 @@ export default function Calendar({
             use12Hours={formats.clock === "12h"}
             format={formats.time}
             style={{ minWidth: "100%" }}
+            disabledTime={() => getDisabledTime(closedHours)}
+            hideDisabledOptions
+            showNow={false}
           />
         </ConfigProvider>
       ),

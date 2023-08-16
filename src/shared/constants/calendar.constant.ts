@@ -1,4 +1,4 @@
-import { ClosedDate, Formats, IBreakpoint } from "../types"
+import { ClosedDate, ClosedHoursRange, Formats, IBreakpoint } from "../types"
 
 /**
  * @constant
@@ -51,4 +51,11 @@ export const CARD_BREAKPOINT: IBreakpoint = {
  * The default array of closed dates.
  * @default
  */
-export const CLOSED_DATES: Array<ClosedDate> = ["Sunday"]
+export const CLOSED_DATES: Array<ClosedDate> = []
+
+/**
+ * @constant
+ * The default range of closed hours in 24h format.
+ * @default
+ */
+export const CLOSED_HOURS: ClosedHoursRange = { start: -1, end: -1 }

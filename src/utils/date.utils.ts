@@ -48,9 +48,9 @@ const getDateList = (amountOfDays: number, closedDates?: Array<ClosedDate>): Arr
  * @param {string} format - The format string to use for formatting.
  * @returns {string} The formatted date string.
  */
-const getFormattedDate = (date: Dayjs, format: string): string => {
-  if (date.isToday()) return "Today"
-  return date.format(format)
+const getFormattedDate = (date: Dayjs | null, format: string): string => {
+  if (date?.isToday()) return "Today"
+  return date?.format(format) || ""
 }
 
 export { getDateList, isDateClosed, getFormattedDate }

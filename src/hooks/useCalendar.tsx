@@ -7,6 +7,7 @@ import {
   CalendarTheme,
   CustomStyles,
   IBreakpoint,
+  ClosedHoursRange,
 } from "../shared/types"
 import {
   CARD_BREAKPOINT,
@@ -16,8 +17,9 @@ import {
   FORMATS,
   MAX_DURATION,
   MIN_DURATION,
+  CLOSED_HOURS,
 } from "../shared/constants"
-import dayjs, { Dayjs } from "dayjs"
+import { Dayjs } from "dayjs"
 import { getDateList, getDurationAverage, getThemeAlgorithm } from "../utils"
 import { ConfigProvider } from "antd"
 
@@ -34,6 +36,7 @@ type CalendarContext = {
   maxDuration: number
   cards: IBreakpoint
   closedDates: Array<ClosedDate>
+  closedHours: ClosedHoursRange
   styles?: Partial<CustomStyles>
 }
 
@@ -48,6 +51,7 @@ type CalendarProviderProps = {
   maxDuration?: number
   cards?: IBreakpoint
   closedDates?: Array<ClosedDate>
+  closedHours?: ClosedHoursRange
   theme?: CalendarTheme
 }
 
@@ -60,11 +64,12 @@ function CalendarProvider({
   maxDuration,
   cards,
   closedDates,
+  closedHours,
   theme,
 }: CalendarProviderProps) {
   const [selected, setSelected] = useState<Selected>({
-    date: dayjs(new Date()),
-    time: dayjs(new Date()),
+    date: null,
+    time: null,
     duration: getDurationAverage(minDuration, maxDuration),
   })
 
@@ -112,6 +117,7 @@ function CalendarProvider({
     maxDuration: maxDuration || MAX_DURATION,
     cards: cards || CARD_BREAKPOINT,
     closedDates: closedDates || CLOSED_DATES,
+    closedHours: closedHours || CLOSED_HOURS,
     styles: theme?.custom || CALENDAR_THEME.custom,
   }
 
